@@ -40,6 +40,7 @@ filetype plugin indent on    " required
 
 " Basic settings
 set nocompatible                " Eliminate backward-compatability
+set backspace=indent,eol,start  " Allows backspacing over indent, line breaks and start of insert
 set number                      " Enable line numbers
 set ruler                       " Turn on the ruler
 syntax on                       " Syntax highlighting
@@ -69,6 +70,11 @@ set hls                         " Hightlight search
 " Color scheme
 colorscheme sweyla
 
+" Replace tabs by 4 spaces
+map <F2> :retab 
+" Disappearing hightlighted found words
+map <F3> :noh
+
 " Global - source navigation plugin 
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
@@ -79,10 +85,10 @@ map <C-i> :call OpenRanger()<CR>
 " Command-T: manage buffers
 nnoremap ,b :CommandTBuffer<CR>
 
-" Replace tabs by 4 spaces
-map <F2> :retab 
-" Disappearing hightlighted found words
-map <F3> :noh
-
 " Vim airline
+" Always show statusbar
+set laststatus=2
+" Show PASTE if in paste mode
+let g:airline_detect_paste=1
+" Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
