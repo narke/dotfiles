@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Plugin 'vim-scripts/indentpython.vim'
@@ -86,9 +87,21 @@ map <C-i> :call OpenRanger()<CR>
 nnoremap ,b :CommandTBuffer<CR>
 
 " Vim airline
-" Always show statusbar
-set laststatus=2
-" Show PASTE if in paste mode
-let g:airline_detect_paste=1
-" Show airline for tabs too
-let g:airline#extensions#tabline#enabled = 1
+set laststatus=2                              " Always show statusbar
+let g:airline_detect_paste=1                  " Show PASTE if in paste mode
+let g:airline#extensions#tabline#enabled=1    " Show airline for tabs too
+
+" Syntastic
+let g:syntastic_error_symbol='✘'
+let g:syntastic_warning_symbol="▲"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode="passive"
+augroup END
+
+nnoremap <leader>S :SyntasticToggleMode<CR>
