@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Plugin 'vim-scripts/indentpython.vim'
@@ -72,11 +73,11 @@ set hls                         " Hightlight search
 colorscheme sweyla
 
 " Replace tabs by 4 spaces
-map <F2> :retab 
+map <F2> :retab
 " Disappearing hightlighted found words
 map <F3> :noh
 
-" Global - source navigation plugin 
+" Global - source navigation plugin
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 
@@ -105,3 +106,9 @@ augroup mySyntastic
 augroup END
 
 nnoremap <leader>S :SyntasticToggleMode<CR>
+
+" GitGutter
+hi clear SignColumn      " Required after having changed the colorscheme
+let g:gitgutter_signs=0  " Turn off signs by default
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only=1
