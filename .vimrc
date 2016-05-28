@@ -18,6 +18,7 @@ Plugin 'francoiscabrol/ranger.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ntpeters/vim-better-whitespace'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Plugin 'vim-scripts/indentpython.vim'
