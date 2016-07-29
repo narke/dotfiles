@@ -14,21 +14,21 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'wincent/command-t'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
-Plugin 'vim-scripts/indentpython.vim'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-filetype plugin indent on    " required
+filetype plugin indent on    " required, file type based indentation
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -42,19 +42,16 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Basic settings
-set nocompatible                " Eliminate backward-compatability
 set backspace=indent,eol,start  " Allows backspacing over indent, line breaks and start of insert
 set number                      " Enable line numbers
 set ruler                       " Turn on the ruler
 syntax on                       " Syntax highlighting
 
-" Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set textwidth=79
+" Indentation using tabs
+set tabstop=8
+set shiftwidth=8
 set autoindent
+set textwidth=79                " Be aware of 80 colons
 
 " Flagging unnecessary whitespaces
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -73,12 +70,19 @@ set hls                         " Hightlight search
 " Color scheme
 colorscheme sweyla
 
-" Replace tabs by 4 spaces
-map <F2> :retab
-" Disappearing hightlighted found words
-map <F3> :noh
+" Make disappear hightlighted found words
+map <F2> :noh
 
-" Global - source navigation plugin
+"  ________________
+" < Plugins config >
+"  ----------------
+"         \   ^__^
+"          \  (oo)\_______
+"             (__)\       )\/\
+"                 ||----w |
+"                 ||     ||
+
+" Global : source navigation plugin
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 
@@ -88,12 +92,12 @@ map <C-i> :call OpenRanger()<CR>
 " Command-T: manage buffers
 nnoremap ,b :CommandTBuffer<CR>
 
-" Vim airline
+" Vim airline: status bar
 set laststatus=2                              " Always show statusbar
 let g:airline_detect_paste=1                  " Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled=1    " Show airline for tabs too
 
-" Syntastic
+" Syntastic : syntax checking
 let g:syntastic_error_symbol='✘'
 let g:syntastic_warning_symbol="▲"
 set statusline+=%#warningmsg#
@@ -108,7 +112,7 @@ augroup END
 
 nnoremap <leader>S :SyntasticToggleMode<CR>
 
-" GitGutter
+" GitGutter : shows a git diff
 hi clear SignColumn      " Required after having changed the colorscheme
 let g:gitgutter_signs=0  " Turn off signs by default
 " In vim-airline, only display "hunks" if the diff is non-zero
