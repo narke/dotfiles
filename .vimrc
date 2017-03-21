@@ -21,6 +21,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'majutsushi/tagbar'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -121,3 +122,6 @@ hi clear SignColumn      " Required after having changed the colorscheme
 let g:gitgutter_signs=0  " Turn off signs by default
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only=1
+
+" TagBar : displays tags in a window, ordered by scope
+nmap <F8> :TagbarToggle<CR>
