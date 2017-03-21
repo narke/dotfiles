@@ -54,10 +54,6 @@ set shiftwidth=8
 set autoindent
 set textwidth=79                " Be aware of 80 colons
 
-" Flagging unnecessary whitespaces
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 " File
 set fileformat=unix
 set encoding=utf-8
