@@ -74,6 +74,13 @@ colorscheme sweyla
 " Make disappear hightlighted found words
 map <F2> :noh
 
+" ATS syntax
+au BufRead,BufNewFile *.dats set filetype=ats
+au BufRead,BufNewFile *.sats set filetype=ats
+au BufRead,BufNewFile *.cats set filetype=ats
+au BufRead,BufNewFile *.hats set filetype=ats
+au Syntax runtime! syntax/ats.vim
+
 "  ________________
 " < Plugins config >
 "  ----------------
