@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'wincent/command-t'
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
@@ -24,6 +24,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
+" Nothing for the moment
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,13 +87,13 @@ map <F2> :noh
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 
-" Ranger
+" Ranger : Browse the filesystem
 map <C-i> :call OpenRanger()<CR>
 
-" Command-T: manage buffers
+" Command-T : manage buffers
 nnoremap ,b :CommandTBuffer<CR>
 
-" Vim airline: status bar
+" Vim airline : status bar
 set laststatus=2                              " Always show statusbar
 let g:airline_detect_paste=1                  " Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled=1    " Show airline for tabs too
